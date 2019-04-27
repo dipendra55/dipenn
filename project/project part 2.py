@@ -68,11 +68,22 @@ def save_data():
 
 
 
-def show_all_employees():
-    print("show all employee")
-
-
-
+def show_all_employees(employee_id_list, firstname_list, surname_list, email_list, salary_list):
+    for item in employee_id_list:
+        print(item, " ", end="")
+    print('\n')
+    for item in firstname_list:
+        print(item, " ", end="")
+    print('\n')
+    for item in surname_list:
+        print(item, " ", end="")
+    print('\n')
+    for item in salary_list:
+        print(item, " ", end="")
+    print('\n')
+    for item in email_list:
+        print(item, " ", end="")
+    print('\n')
 
 def show_employee():
     print("show  employee")
