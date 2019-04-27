@@ -85,7 +85,17 @@ def show_all_employees(employee_id_list, firstname_list, surname_list, salary_li
         print(item, " ", end="")
     print('\n')
 
-def show_employee(
+def show_employee(employee_id_list, firstname_list, surname_list, salary_list, email_list):
+    position = find_employee_pos_in_list(employee_id_list)
+    if position != 1 :
+        print(employee_id_list[position], " ", end="")
+        print(firstname_list[position], " ", end="")
+        print(surname_list[position], " ", end="")
+        print(salary_list[position], " ", end="")
+        print(email_list[position], " ", end="")
+        print('\n')
+    else:
+        print("Employee id is invalid")
 
 
 def change_salary():
