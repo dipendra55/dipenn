@@ -68,7 +68,7 @@ def save_data():
 
 
 
-def show_all_employees(employee_id_list, firstname_list, surname_list, email_list, salary_list):
+def show_all_employees(employee_id_list, firstname_list, surname_list, salary_list, email_list):
     for item in employee_id_list:
         print(item, " ", end="")
     print('\n')
@@ -85,8 +85,7 @@ def show_all_employees(employee_id_list, firstname_list, surname_list, email_lis
         print(item, " ", end="")
     print('\n')
 
-def show_employee():
-    print("show  employee")
+def show_employee(
 
 
 def change_salary():
@@ -101,7 +100,12 @@ def add_employee():
 def remove_employee():
     print("remove employee")
 
-
+def find_employee_pos_in_list(empid, employee_id_list):
+    if empid in employee_id_list:
+        position = employee_id_list.index(empid)
+        return position
+    else :
+        return -1
 
 def save_bonus_info():
     print("save bonus info")
