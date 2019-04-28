@@ -85,7 +85,7 @@ def show_all_employees(employee_id_list, firstname_list, surname_list, salary_li
         print(item, " ", end="")
     print('\n')
 
-def show_employee(employee_id_list, firstname_list, surname_list, salary_list, email_list):
+def show_employee(empid, employee_id_list, firstname_list, surname_list, salary_list, email_list):
     position = find_employee_pos_in_list(employee_id_list)
     if position != 1 :
         print(employee_id_list[position], " ", end="")
@@ -95,12 +95,30 @@ def show_employee(employee_id_list, firstname_list, surname_list, salary_list, e
         print(email_list[position], " ", end="")
         print('\n')
     else:
-        print("Employee id is invalid")
+        print("Employee id does not exist")
 
 
-def change_salary():
-    print("change salary")
+def change_salary(empid, employee_id_list, salary_list):
+    position = find_employee_pos_in_list(empid, employee_id_list)
+    if position != -1:
+        salary = str(input("Enter Salary:"))
+        if(float(salary) >= 0):
+            oldsalary=str(salary_list[position])
+            salary_list.insert(position, salary)
+            del salary_list[position+1]
+            file1=open("emp.txt", "r")
+            line =file1.read()
+            file2=open("emp.txt", "w")
 
+            if oldsalary in line:
+                salary = salary + "\n"
+                file2.write(line.replace(oldsalary,salary))
+            file1.close()
+            file2.close()
+        else:
+            print("Salary cannot be set to a negative number")
+    else:
+        print("Employee id does not exist")
 
 
 def add_employee():
