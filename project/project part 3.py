@@ -125,8 +125,27 @@ def add_employee():
     print("add employee")
 
 
-def remove_employee():
-    print("remove employee")
+def remove_employee(empid, employee_id_list, firstname_list, surname_list, salary_list, email_list):
+    position = find_employee_pos_in_list(empid, employee_id_list)
+    if position != -1:
+        del employee_id_list[position]
+        del firstname_list[position]
+        del surname_list[position]
+        del salary_list[position]
+        del email_list[position]
+        file1 = open("emp.txt", "r")
+        lines = file1.readlines()
+        file2 = open("emp.txt", "w")
+        for line in lines:
+            if not line.startswith(empid):
+                file2.write(line)
+        file1.close()
+        file2.close()
+
+    else:
+        print("employee id does not exist")
+
+
 
 def find_employee_pos_in_list(empid, employee_id_list):
     if empid in employee_id_list:
